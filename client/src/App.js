@@ -5,8 +5,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Things from "./pages/Things";
+
     function App() {
       return (
         <>
@@ -14,8 +13,7 @@ import Things from "./pages/Things";
           {/* <Container> */}
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/about" component={About} />
-              <Route exact path="/about" component={Things} />
+
 
             </Switch>
           {/* </Container> */}

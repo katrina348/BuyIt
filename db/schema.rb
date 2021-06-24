@@ -10,35 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_203011) do
+ActiveRecord::Schema.define(version: 2021_06_24_214341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "zip"
+    t.string "city"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_addresses_on_product_id"
+  end
+
   create_table "buyers", force: :cascade do |t|
-    t.string "name"
-    t.string "max_price"
-    t.string "desired_categories"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.float "max_price"
+    t.string "categories"
     t.bigint "seller_id", null: false
-    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["seller_id"], name: "index_buyers_on_seller_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "price"
-    t.string "description"
-    t.bigint "seller_id", null: false
+    t.string "name"
+    t.float "price"
     t.string "category"
+    t.boolean "sold"
+    t.bigint "seller_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "sellers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
-    t.string "name"
+    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_203011) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "products"
   add_foreign_key "buyers", "sellers"
   add_foreign_key "products", "sellers"
 end
