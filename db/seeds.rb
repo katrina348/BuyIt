@@ -18,14 +18,14 @@ categories = [
   'Miniatures',
   'Gardening'
   ]
-    100.times do
+    10.times do
     s = Seller.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.cell_phone
     )
-      50.times do
+      5.times do
       num_categories = rand(0..categories.length - 1);
       Buyer.create(
       first_name: Faker::Name.first_name,
@@ -37,7 +37,7 @@ categories = [
       seller_id: s.id
       )
       end
-        50.times do
+        5.times do
         sold = Faker::Boolean.boolean(true_ratio: 0.3)
         price = rand(1..15)
         p = Product.create(

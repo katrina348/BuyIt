@@ -15,37 +15,8 @@ import SellerProducts from '../components/SellerProducts';
 // "zip":"92426",
 // "id":null},
 
-const seller = {
-  fullName: 'Selly McSellerton',
-  email: 'email@email.com',
-  products: [
-    {
-    name:'thing',
-    price:'3',
-    category:'category',
-    city:'city',
-    zip:'12345',
-    } ,   
-  ]
-};
-const seller1 = {
-  fullName: 'Sjhtfhtufy McSellerton',
-  email: 'email@email.com',
-  products: [
-    {
-    name:'thi.jbng',
-    price:'3',
-    category:'category',
-    city:'city',
-    zip:'12345',
-    } , 
-  ]
-};
-
-const sellers = [seller, seller1]
-
 const Available = () => {
-  let [sellers, setSellers] = useState([])
+  const [sellers, setSellers] = useState([])
   useEffect(()=>{
     getSellerProducts()
   },[])
@@ -53,7 +24,7 @@ const Available = () => {
     const normalizeData = (sellerProducts) => {
       //get unique ids of sellers
       const uniqSellerIDS = [...new Set(sellerProducts.map(p=> p.seller_id))]
-      const sellers = []
+      const sellersData = []
       uniqSellerIDS.forEach(id => {
         let products = sellerProducts.filter(sp => sp.seller_id === id)
         let {seller_id, first_name, last_name, email} = products[0]
@@ -67,13 +38,14 @@ const Available = () => {
                 }
         })
 
-        sellers.push({
+        sellersData.push({
          seller_id, fullName: `${first_name} ${last_name}`,
          email, 
          products: cleanedProducts
         })
       })
-      console.log(sellers)
+      console.log(sellersData)
+      setSellers(sellersData)
     }
     const getSellerProducts = async()=>{
       try {
