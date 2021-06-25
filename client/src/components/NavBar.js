@@ -1,14 +1,33 @@
-import React from "react";
-import { Link} from "react-router-dom"
+import axios from 'axios'
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import {Menu} from "semantic-ui-react";
 
 const NavBar =()=>{
-  return(
-    <div>
-      <Link to="/">Home</Link>
-      <Link to='/about'>About</Link>
-      <Link to='/things'>Things</Link>
-    </div>
+  const[sellerProducts, setSellerProducts] = useState([])
+
+  useEffect(()=>{
+    getSellerProducts()
+  },[])
+
+  const getSellerProducts = async () => {
+    try {
+      let res = await axios.get('/api/products')
+      console.log(res)
+    }catch(err){
+      console.log(err)
+      console.log(err.response)
+    }
+  }
+  return (
+    <Menu>
+      <Link to="/">
+        <Menu.Item> 
+            Available
+        </Menu.Item>
+      </Link>
+    </Menu>
   );
 }
 
-export default NavBar
+export default NavBar;
