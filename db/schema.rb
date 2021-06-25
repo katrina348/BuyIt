@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_214341) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "phone"
     t.float "max_price"
     t.string "categories"
     t.bigint "seller_id", null: false
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_214341) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -10,14 +10,15 @@ class Product < ApplicationRecord
   # ORDER BY s.id
   
   def self.available
-    select('s.first_name, 
+    select(
+      's.first_name, 
       s.last_name, 
-      sold, 
       s.email, 
       s.id AS seller_id, 
       p.name, 
       p.price, 
       p.category, 
+      sold, 
       p.id AS product_id, 
       city, 
       zip')
