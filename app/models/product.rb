@@ -21,6 +21,7 @@ class Product < ApplicationRecord
       p.id AS product_id, 
       city, 
       zip')
+      .from('sellers AS s')
       .joins('INNER JOIN products AS p ON p.seller_id = s.id
               INNER JOIN addresses AS a ON a.product_id = p.id')
       .where('p.sold <> TRUE')
