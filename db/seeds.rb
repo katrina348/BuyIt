@@ -23,7 +23,6 @@ categories = [
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    phone: Faker::PhoneNumber.cell_phone
     )
       5.times do
       num_categories = rand(0..categories.length - 1);
@@ -31,7 +30,6 @@ categories = [
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.cell_phone,
       max_price: rand(5..25),
       categories: categories.sample(num_categories),
       seller_id: s.id
