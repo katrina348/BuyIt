@@ -28,5 +28,10 @@ class Product < ApplicationRecord
       .where('p.sold <> TRUE')
       .order('s.id')
   end
+
+  # SELECT DISTINCT category FROM products
+  def self.categories
+    select('DISTINCT category').to_json(except: :id)
+  end 
 end
 
