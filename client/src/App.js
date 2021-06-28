@@ -13,6 +13,8 @@ import "./App.css";
           <Container>
             <Switch>
               <Route exact path="/" component={Available}/>
+              {/* <Route exact path="/categories" component={Categories} />
+              <Route exact path="/products" component={FindProducts} /> */}
             </Switch>
           </Container>
         </>

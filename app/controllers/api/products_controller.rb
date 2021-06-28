@@ -1,10 +1,7 @@
 class Api::ProductsController < ApplicationController
-
-  def index
-    render json: Product.available
+  
+  def all_categories
+    render json: Product.all_categories
   end
 
-  def categories
-    render json: Product.categories
-  end
 end
