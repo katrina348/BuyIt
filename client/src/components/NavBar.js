@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import { Link  } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
+import Categories from "../pages/Categories";
 
 const Navbar =()=> {
     const [sellerProducts, setSellerProducts] = useState([])
@@ -21,9 +22,15 @@ const Navbar =()=> {
     }
     return (
       <Menu>
-          <Link to="/">
+          <Link to="/available">
             <Menu.Item>
                Available
+            </Menu.Item>
+          </Link>
+
+          <Link to="/categories">
+            <Menu.Item>
+               Categories
             </Menu.Item>
           </Link>
       </Menu>

@@ -16,8 +16,6 @@ const SellerProducts = ({fullName, email, products}) => (
           <Table.HeaderCell>Prod. Name</Table.HeaderCell>
           <Table.HeaderCell>Prod. Price</Table.HeaderCell>
           <Table.HeaderCell>Prod. Category</Table.HeaderCell>
-          <Table.HeaderCell>City</Table.HeaderCell>
-          <Table.HeaderCell>Zip</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -27,8 +25,6 @@ const SellerProducts = ({fullName, email, products}) => (
         <Table.Cell>{p.name}</Table.Cell>
         <Table.Cell>{p.price}</Table.Cell>
         <Table.Cell>{p.category}</Table.Cell>
-        <Table.Cell>{p.city}</Table.Cell>
-        <Table.Cell>{p.zip}</Table.Cell>
       </Table.Row>
       ))}
     </Table.Body>

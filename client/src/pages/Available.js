@@ -33,8 +33,6 @@ const Available = () => {
           return{ name: p.name,
                   price: p.price,
                   category: p.category,
-                  city: p.city,
-                  zip: p.zip
                 }
         })
 
@@ -54,13 +52,13 @@ const Available = () => {
       }catch (err) {
         console.log(err)
       }
-  }
-  return (
-    <>
-    <h1>Available</h1>
-    {sellers.map(s => (
-    <SellerProducts {...s}/>
-  ))
+    }
+    return (
+      <>
+      <h1>Available</h1>
+      {sellers.map(s => (
+      <SellerProducts {...s}/>
+    ))
   }
     </>
   )

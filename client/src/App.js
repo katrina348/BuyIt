@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Available from "./pages/Available";
 import React from "react";
 import "./App.css";
+import Categories from "./pages/Categories";
 
     function App() {
       return (
@@ -12,9 +13,9 @@ import "./App.css";
           <NavBar/>
           <Container>
             <Switch>
-              <Route exact path="/" component={Available}/>
-              {/* <Route exact path="/categories" component={Categories} />
-              <Route exact path="/products" component={FindProducts} /> */}
+              <Route exact path="/available" component={Available}/>
+              <Route exact path="/categories" component={Categories} />
+              {/* <Route exact path="/products" component={FindProducts} /> */}
             </Switch>
           </Container>
         </>
